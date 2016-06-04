@@ -1,0 +1,31 @@
+C:\Travail\ProjetFlavienValentin.exe.config
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin.exe
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin.pdb
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\IHM.csprojResolveAssemblyReference.cache
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\AddWindow.baml
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\MainWindow.baml
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\AddWindow.g.cs
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\MainWindow.g.cs
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\App.g.cs
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin_MarkupCompile.cache
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin.g.resources
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin.Properties.Resources.resources
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\IHM.csproj.GenerateResource.Cache
+C:\Travail\ProjetFlavienValentin.exe
+C:\Travail\ProjetFlavienValentin.pdb
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\GeneratedInternalTypeHelper.g.cs
+U:\IHM\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin_MarkupCompile.lref
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin.exe
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin.pdb
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\IHM.csprojResolveAssemblyReference.cache
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\AddWindow.baml
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\AddWindow.g.cs
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\MainWindow.g.cs
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\App.g.cs
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin_MarkupCompile.cache
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin_MarkupCompile.lref
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\MainWindow.baml
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin.g.resources
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin.Properties.Resources.resources
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\IHM.csproj.GenerateResource.Cache

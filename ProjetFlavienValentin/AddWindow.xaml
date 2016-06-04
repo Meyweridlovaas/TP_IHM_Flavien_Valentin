@@ -1,0 +1,47 @@
+﻿<!-- ======================================================================
+
+   Module        : AddWindow.xaml
+   Author        : Valentin Gonon & Flavien Sarret
+// Creation date : 2016-06-03
+
+======================================================================== -->
+    
+<Window x:Class="ProjetFlavienValentin.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ajouter un nouvel animal" Height="300" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Content="Nom : "/>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Content="Famille : " Grid.Row="1"/>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Content="Description : " Grid.Row="2"/>
+            <TextBox Grid.Column="1" Margin="5" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Grid.Column="1" Grid.Row="1" Margin="5" Text="{Binding Family,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Column="1" Grid.Row="2" Margin="5" Text="{Binding Description,UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Margin="10" Content="Ajouter image" Grid.Row="3" Grid.ColumnSpan="2" Width="120" Command="{Binding AddImageCommand}"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Margin="10" Content="Ajouter" Command="{Binding ConfirmAddCommand}"/>
+            <Button Margin="10" Content="Annuler" Grid.Column="1" Command="{Binding CancelAddCommand}"/>
+        </Grid>
+
+    </Grid>
+</Window>
