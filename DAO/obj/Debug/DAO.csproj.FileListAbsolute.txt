@@ -1,0 +1,7 @@
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\DAO\bin\Debug\DAO.dll
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\DAO\bin\Debug\DAO.pdb
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\DAO\bin\Debug\Library.dll
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\DAO\bin\Debug\Library.pdb
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\DAO\obj\Debug\DAO.dll
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\DAO\obj\Debug\DAO.pdb
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache

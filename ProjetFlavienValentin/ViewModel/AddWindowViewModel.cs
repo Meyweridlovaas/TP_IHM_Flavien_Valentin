@@ -6,9 +6,9 @@
 //
 // ========================================================================
 
+using DAO;
 using Library;
 using Microsoft.Win32;
-using ProjetFlavienValentin.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

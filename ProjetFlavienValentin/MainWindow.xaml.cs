@@ -1,4 +1,4 @@
-﻿using ProjetFlavienValentin.Model;
+﻿
 using ProjetFlavienValentin.ViewModel;
 using System;
 using System.Collections.Generic;
