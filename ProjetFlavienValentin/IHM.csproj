@@ -75,6 +75,7 @@
     <Compile Include="Converter\Bool2Visibility1Converter.cs" />
     <Compile Include="Converter\Bool2Visibility2Converter.cs" />
     <Compile Include="Converter\String2UriConverter.cs" />
+    <Compile Include="Event\ButtonPressedEvent.cs" />
     <Compile Include="ViewModel\AddWindowViewModel.cs" />
     <Compile Include="ViewModel\ListAnimalViewModel.cs" />
     <Page Include="AddWindow.xaml">

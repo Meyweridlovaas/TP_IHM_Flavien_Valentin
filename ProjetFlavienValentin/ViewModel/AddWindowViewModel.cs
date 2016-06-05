@@ -9,6 +9,7 @@
 using DAO;
 using Library;
 using Microsoft.Win32;
+using ProjetFlavienValentin.Event;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -121,7 +122,7 @@ namespace ProjetFlavienValentin.ViewModel
         private void OnConfirmAddCommand(object o)
         {
             ListModel.ListAnimals.Add(new Animal { Name = Name, Description = Description, Family = Family, ImageSource = ImageSource });
-            _window.Close();
+            ButtonPressedEvent.GetEvent().OnButtonPressedHandler(EventArgs.Empty);
         }
 
         private bool CanConfirmAddCommand(object o)
@@ -132,7 +133,7 @@ namespace ProjetFlavienValentin.ViewModel
 
         private void OnCancelAddCommand(object o)
         {
-            _window.Close();
+            ButtonPressedEvent.GetEvent().OnButtonPressedHandler(EventArgs.Empty);
         }
 
         private bool CanCancelAddCommand(object o)

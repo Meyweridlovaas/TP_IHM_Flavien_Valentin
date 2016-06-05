@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    public class AnimalManager
+    public static class AnimalManager
     {
         /// <summary>
         /// Initialise une liste d'animaux

@@ -9,6 +9,7 @@
 using DAO;
 using Library;
 using Microsoft.Win32;
+using ProjetFlavienValentin.Event;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -135,6 +136,7 @@ namespace ProjetFlavienValentin.ViewModel
         private string _name;
         private string _family;
         private string _description;
+        private AddWindow _addWindow;
 
         #endregion
 
@@ -169,15 +171,25 @@ namespace ProjetFlavienValentin.ViewModel
 
         private void OnAddCommand(object o)
         {
-            AddWindow add = new AddWindow();
-            AddWindowViewModel model = new AddWindowViewModel(this, add);
-            add.DataContext = model;
-            add.ShowDialog();
+            ButtonPressedEvent.GetEvent().Handler += CloseAddWindow;
+            _addWindow = new AddWindow();
+            _addWindow.ShowDialog();
+            //AddWindow add = new AddWindow();
+            AddWindowViewModel model = new AddWindowViewModel(this, _addWindow);
+            _addWindow.DataContext = model;
+            //add.DataContext = model;
+            //add.ShowDialog();
         }
 
         private bool CanAddCommand(object o)
         {
             return IsReadOnly;
+        }
+
+        private void CloseAddWindow(object sender, EventArgs e)
+        {
+            _addWindow.Close();
+            ButtonPressedEvent.GetEvent().Handler -= CloseAddWindow;
         }
 
         private void OnEditCommand(object o)
