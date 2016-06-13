@@ -27,6 +27,12 @@ namespace ProjetFlavienValentin.ViewModel
 
         #region PropriétésPubliques
 
+        public UserAccount User
+        {
+            get;
+            set;
+        }
+
         public Animal Animal
         {
             get
@@ -72,6 +78,7 @@ namespace ProjetFlavienValentin.ViewModel
             set
             {
                 _name = value;
+                SaveCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -84,6 +91,7 @@ namespace ProjetFlavienValentin.ViewModel
             set
             {
                 _description = value;
+                SaveCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -96,6 +104,7 @@ namespace ProjetFlavienValentin.ViewModel
             set
             {
                 _family = value;
+                SaveCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -123,6 +132,21 @@ namespace ProjetFlavienValentin.ViewModel
             {
                 _isReadOnly = value;
                 NotifyPropertyChanged("IsReadOnly");
+                CancelCommand.RaiseCanExecuteChanged();
+                SaveCommand.RaiseCanExecuteChanged();
+                EditCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        public bool IsConnected
+        {
+            get
+            {
+                return IsConnected;
+            }
+            set
+            {
+                IsConnected = value;
             }
         }
 
@@ -132,6 +156,7 @@ namespace ProjetFlavienValentin.ViewModel
 
         private Animal _animal;
         private ObservableCollection<Animal> _listAnimals = new ObservableCollection<Animal>();
+        private bool _isConnected;
         private bool _isReadOnly;
         private string _name;
         private string _family;
@@ -174,11 +199,6 @@ namespace ProjetFlavienValentin.ViewModel
             ButtonPressedEvent.GetEvent().Handler += CloseAddWindow;
             _addWindow = new AddWindow();
             _addWindow.ShowDialog();
-            //AddWindow add = new AddWindow();
-            AddWindowViewModel model = new AddWindowViewModel(this, _addWindow);
-            _addWindow.DataContext = model;
-            //add.DataContext = model;
-            //add.ShowDialog();
         }
 
         private bool CanAddCommand(object o)
@@ -189,12 +209,13 @@ namespace ProjetFlavienValentin.ViewModel
         private void CloseAddWindow(object sender, EventArgs e)
         {
             _addWindow.Close();
+            ListAnimals.Add((e as AnimalEventArgs).Animal);
             ButtonPressedEvent.GetEvent().Handler -= CloseAddWindow;
         }
 
         private void OnEditCommand(object o)
         {
-            IsReadOnly = !IsReadOnly;
+            IsReadOnly = false;
             DeleteCommand.RaiseCanExecuteChanged();
             AddCommand.RaiseCanExecuteChanged();
         }
@@ -216,12 +237,13 @@ namespace ProjetFlavienValentin.ViewModel
 
         private bool CanSaveCommand(object obj)
         {
-            return true;
+            //Vérifie que tous les champs sont remplis
+            return (Name != string.Empty && Family != string.Empty && Description != string.Empty) && !IsReadOnly;
         }
 
         private void OnSaveCommand(object obj)
         {
-            IsReadOnly = !IsReadOnly;
+            IsReadOnly = true;
             DeleteCommand.RaiseCanExecuteChanged();
             AddCommand.RaiseCanExecuteChanged();
             Animal.Name = _name;
@@ -232,12 +254,12 @@ namespace ProjetFlavienValentin.ViewModel
 
         private bool CanCancelCommand(object obj)
         {
-            return true;
+            return !IsReadOnly;
         }
 
         private void OnCancelCommand(object obj)
         {
-            IsReadOnly = !IsReadOnly;
+            IsReadOnly = true;
             DeleteCommand.RaiseCanExecuteChanged();
             AddCommand.RaiseCanExecuteChanged();
             Animal = Animal;

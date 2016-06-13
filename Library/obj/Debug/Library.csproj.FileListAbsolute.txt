@@ -7,3 +7,4 @@ C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin
 C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\Library\bin\Debug\Library.pdb
 C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\Library\obj\Debug\Library.dll
 C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\Library\obj\Debug\Library.pdb
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache

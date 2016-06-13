@@ -34,7 +34,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>C:\Travail\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -75,6 +75,8 @@
     <Compile Include="Converter\Bool2Visibility1Converter.cs" />
     <Compile Include="Converter\Bool2Visibility2Converter.cs" />
     <Compile Include="Converter\String2UriConverter.cs" />
+    <Compile Include="Converter\User2StringConverter.cs" />
+    <Compile Include="Event\AnimalEventArgs.cs" />
     <Compile Include="Event\ButtonPressedEvent.cs" />
     <Compile Include="ViewModel\AddWindowViewModel.cs" />
     <Compile Include="ViewModel\ListAnimalViewModel.cs" />

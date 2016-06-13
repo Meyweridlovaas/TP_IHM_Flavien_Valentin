@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- ======================================================================
+
+   Module        : ListAnimalDefault.xml
+   Author        : Valentin Gonon & Flavien Sarret
+   Creation date : 2016-06-13
+
+======================================================================== -->
+
+<ListAnimal>
+  <Animal>
+    <Name>Chat</Name>
+    <Family>Animal</Family>
+    <Description>Fait le buzz sur internet</Description>
+    <ImageSource>http://media.virginradio.fr/article-2505914-fb-f1415609183/chat-mignon-petit-chaton-therapie-detente.jpg</ImageSource>
+  </Animal>
+  <Animal>
+    <Name>Poisson rouge</Name>
+    <Family>Poisson</Family>
+    <Description>bloup bloup bloup bloup bloup bloup bloup bloup bloup bloup bloup bloup</Description>
+    <ImageSource>http://i.telegraph.co.uk/multimedia/archive/01396/fish_1396516c.jpg</ImageSource>
+  </Animal>
+</ListAnimal>

@@ -29,3 +29,6 @@ C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin
 C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin.g.resources
 C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ProjetFlavienValentin.Properties.Resources.resources
 C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\IHM.csproj.GenerateResource.Cache
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\bin\ProjetFlavienValentin.exe.config
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\bin\ProjetFlavienValentin.exe
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\bin\ProjetFlavienValentin.pdb

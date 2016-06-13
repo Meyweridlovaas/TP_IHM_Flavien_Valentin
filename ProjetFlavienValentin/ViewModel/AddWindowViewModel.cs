@@ -99,15 +99,8 @@ namespace ProjetFlavienValentin.ViewModel
 
         #endregion
 
-        //Référence vers le ViewModel, permettant d'y ajouter un animal
-        private ListAnimalViewModel ListModel;
-        //Référence vers la fenêtre active, permettant de la fermer
-        private AddWindow _window;
-
-        public AddWindowViewModel(ListAnimalViewModel listModel, AddWindow window)
-        {
-            ListModel = listModel;
-            _window = window;
+        public AddWindowViewModel()
+        {            
             ConfirmAddCommand = new DelegateCommand(OnConfirmAddCommand, CanConfirmAddCommand);
             CancelAddCommand = new DelegateCommand(OnCancelAddCommand, CanCancelAddCommand);
             AddImageCommand = new DelegateCommand(OnAddImageCommand, CanAddImageCommand);
@@ -115,14 +108,15 @@ namespace ProjetFlavienValentin.ViewModel
             Description = string.Empty;
             Family = string.Empty;
             ImageSource = string.Empty;
-        }               
+        }   
 
         #region Commandes
 
         private void OnConfirmAddCommand(object o)
         {
-            ListModel.ListAnimals.Add(new Animal { Name = Name, Description = Description, Family = Family, ImageSource = ImageSource });
-            ButtonPressedEvent.GetEvent().OnButtonPressedHandler(EventArgs.Empty);
+            AnimalEventArgs arg = new AnimalEventArgs();
+            arg.Animal = new Animal { Name = Name, Description = Description, Family = Family, ImageSource = ImageSource };
+            ButtonPressedEvent.GetEvent().OnButtonPressedHandler(arg);
         }
 
         private bool CanConfirmAddCommand(object o)

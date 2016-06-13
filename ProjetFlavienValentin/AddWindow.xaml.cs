@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetFlavienValentin.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,13 @@ namespace ProjetFlavienValentin
     /// </summary>
     public partial class AddWindow : Window
     {
+        private AddWindowViewModel _viewModel;
         public AddWindow()
         {
             InitializeComponent();
+
+            _viewModel = new AddWindowViewModel();
+            DataContext = _viewModel;
         }
     }
 }
