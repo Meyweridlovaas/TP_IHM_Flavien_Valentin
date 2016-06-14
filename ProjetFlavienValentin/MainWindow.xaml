@@ -25,10 +25,10 @@
                 <MenuItem Header="Annuler modifications de l'animal" Command="{Binding CancelCommand}"/>
             </MenuItem>
             <MenuItem Header="Compte">
-                <MenuItem Header="Se connecter"/>
-                <MenuItem Header="Créer un compte"/>
-                <MenuItem Header="Se déconnecter"/>
-                <MenuItem Header="Changer de mot de passe"/>
+                <MenuItem Header="Se connecter" Command="{Binding ConnectCommand}"/>
+                <MenuItem Header="Créer un compte" Command="{Binding CreateAccountCommand}"/>
+                <MenuItem Header="Se déconnecter" Command="{Binding DisconnectCommand}"/>
+                <MenuItem Header="Changer de mot de passe" Command="{Binding ChangePasswordCommand}"/>
             </MenuItem>
         </Menu>
         <Grid>
@@ -52,8 +52,9 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Margin="6,0,0,0" Content="{Binding User, Converter={StaticResource ResourceKey=User2String}}"/>
-                <Button Grid.Column="1" Margin="3" Content="Se connecter"/>
-                <Button Grid.Column="2" Margin="3" Content="Nouvel utilisateur"/>
+                <Button Grid.Column="2" Margin="3" Content="Se connecter" Visibility="{Binding IsConnected,Converter= {StaticResource ResourceKey=Bool2Visibility2}}" Command="{Binding ConnectCommand}"/>
+                <Button Grid.Column="1" Margin="3" Content="Nouvel utilisateur" Visibility="{Binding IsConnected,Converter= {StaticResource ResourceKey=Bool2Visibility2}}" Command="{Binding CreateAccountCommand}"/>
+                <Button Grid.Column="2" Margin="3" Content="Se déconnecter" Visibility="{Binding IsConnected,Converter= {StaticResource ResourceKey=Bool2Visibility1}}" Command="{Binding DisconnectCommand}"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>

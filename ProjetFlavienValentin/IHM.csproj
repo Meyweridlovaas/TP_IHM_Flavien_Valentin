@@ -71,6 +71,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddUserWindow.xaml.cs">
+      <DependentUpon>AddUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectUserWindow.xaml.cs">
+      <DependentUpon>ConnectUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Event\UserEventArgs.cs" />
+    <Compile Include="ViewModel\AddUserWindowViewModel.cs" />
     <Compile Include="Converter\Bool2ColorReadOnlyConverter.cs" />
     <Compile Include="Converter\Bool2Visibility1Converter.cs" />
     <Compile Include="Converter\Bool2Visibility2Converter.cs" />
@@ -79,8 +90,22 @@
     <Compile Include="Event\AnimalEventArgs.cs" />
     <Compile Include="Event\ButtonPressedEvent.cs" />
     <Compile Include="ViewModel\AddWindowViewModel.cs" />
+    <Compile Include="ViewModel\ChangePasswordWindowViewModel.cs" />
+    <Compile Include="ViewModel\ConnectUserWindowViewModel.cs" />
     <Compile Include="ViewModel\ListAnimalViewModel.cs" />
+    <Page Include="AddUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangePasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConnectUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -29,8 +29,15 @@ namespace ProjetFlavienValentin.ViewModel
 
         public UserAccount User
         {
-            get;
-            set;
+            get
+            {
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                NotifyPropertyChanged("User");
+            }
         }
 
         public Animal Animal
@@ -108,6 +115,18 @@ namespace ProjetFlavienValentin.ViewModel
             }
         }
 
+        public ObservableCollection<UserAccount> ListUsers
+        {
+            get
+            {
+                return _listUsers;
+            }
+            set
+            {
+                _listUsers = value;
+            }
+        }
+
         public ObservableCollection<Animal> ListAnimals
         {
             get
@@ -138,15 +157,21 @@ namespace ProjetFlavienValentin.ViewModel
             }
         }
 
+        //Définit si un utilisateur est connecté
         public bool IsConnected
         {
             get
             {
-                return IsConnected;
+                return _isConnected;
             }
             set
             {
-                IsConnected = value;
+                _isConnected = value;
+                NotifyPropertyChanged("IsConnected");
+                ConnectCommand.RaiseCanExecuteChanged();
+                DisconnectCommand.RaiseCanExecuteChanged();
+                CreateAccountCommand.RaiseCanExecuteChanged();
+                ChangePasswordCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -155,6 +180,8 @@ namespace ProjetFlavienValentin.ViewModel
         #region AttributsPrivés
 
         private Animal _animal;
+        private UserAccount _user;
+        private ObservableCollection<UserAccount> _listUsers = new ObservableCollection<UserAccount>();
         private ObservableCollection<Animal> _listAnimals = new ObservableCollection<Animal>();
         private bool _isConnected;
         private bool _isReadOnly;
@@ -162,6 +189,9 @@ namespace ProjetFlavienValentin.ViewModel
         private string _family;
         private string _description;
         private AddWindow _addWindow;
+        private AddUserWindow _addUserWindow;
+        private ConnectUserWindow _connectUserWindow;
+        private ChangePasswordWindow _changePasswordWindow;
 
         #endregion
 
@@ -175,6 +205,13 @@ namespace ProjetFlavienValentin.ViewModel
         public DelegateCommand SaveCommand { get; set; }
         public DelegateCommand CancelCommand { get; set; }
         public DelegateCommand ChangeImageCommand { get; set; }
+        public DelegateCommand ConnectCommand { get; set; }
+        public DelegateCommand DisconnectCommand { get; set; }
+        public DelegateCommand CreateAccountCommand { get; set; }
+        public DelegateCommand ChangePasswordCommand { get; set; }
+        public DelegateCommand SaveXMLCommand { get; set; }
+        public DelegateCommand SaveAsXMLCommand { get; set; }
+        public DelegateCommand OpenXMLCommand { get; set; }
 
         #endregion
 
@@ -188,11 +225,21 @@ namespace ProjetFlavienValentin.ViewModel
             SaveCommand = new DelegateCommand(OnSaveCommand, CanSaveCommand);
             CancelCommand = new DelegateCommand(OnCancelCommand, CanCancelCommand);
             ChangeImageCommand = new DelegateCommand(OnChangeImageCommand, CanChangeImageCommand);
+            ConnectCommand = new DelegateCommand(OnConnectCommand, CanConnectOrCreateAccountCommand);
+            CreateAccountCommand = new DelegateCommand(OnCreateAccountCommant, CanConnectOrCreateAccountCommand);
+            DisconnectCommand = new DelegateCommand(OnDisconnectCommand, CanDisconnectOrChangePasswordCommand);
+            ChangePasswordCommand = new DelegateCommand(OnChangePasswordCommand, CanDisconnectOrChangePasswordCommand);
+            SaveXMLCommand = new DelegateCommand(OnSaveXMLCommand, CanXMLCommand);
+            SaveAsXMLCommand = new DelegateCommand(OnSaveAsXMLCommand, CanXMLCommand);
+            OpenXMLCommand = new DelegateCommand(OnOpenXMLCommand, CanXMLCommand);
 
             IsReadOnly = true;
+            IsConnected = false;
         }
 
         #region Commandes
+
+        #region CRUD
 
         private void OnAddCommand(object o)
         {
@@ -209,7 +256,7 @@ namespace ProjetFlavienValentin.ViewModel
         private void CloseAddWindow(object sender, EventArgs e)
         {
             _addWindow.Close();
-            ListAnimals.Add((e as AnimalEventArgs).Animal);
+            if (e != EventArgs.Empty) ListAnimals.Add((e as AnimalEventArgs).Animal);
             ButtonPressedEvent.GetEvent().Handler -= CloseAddWindow;
         }
 
@@ -281,6 +328,135 @@ namespace ProjetFlavienValentin.ViewModel
                 Animal = Animal;
             }
         }
+
+        #endregion
+
+        #region PersistanceXML
+
+        private void OnOpenXMLCommand(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnSaveAsXMLCommand(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool CanXMLCommand(object obj)
+        {
+            return true;
+        }
+
+        private void OnSaveXMLCommand(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region ComptesUtilisateurs
+
+        private void OnConnectCommand(object obj)
+        {
+            ButtonPressedEvent.GetEvent().Handler += CloseConnectUserWindow;
+            _connectUserWindow = new ConnectUserWindow();
+            _connectUserWindow.ShowDialog();
+        }
+
+        private void OnCreateAccountCommant(object obj)
+        {
+            ButtonPressedEvent.GetEvent().Handler += CloseAddUserWindow;
+            _addUserWindow = new AddUserWindow();
+            _addUserWindow.ShowDialog();
+        }
+
+        private bool CanConnectOrCreateAccountCommand(object obj)
+        {
+            return !IsConnected;
+        }
+
+        private void OnDisconnectCommand(object obj)
+        {
+            IsConnected = false;
+            User = null;
+        }
+
+        private void OnChangePasswordCommand(object obj)
+        {
+            ButtonPressedEvent.GetEvent().Handler += CloseChangePasswordWindow;
+            _changePasswordWindow = new ChangePasswordWindow();
+            _changePasswordWindow.ShowDialog();
+        }
+
+        private bool CanDisconnectOrChangePasswordCommand(object obj)
+        {
+            return IsConnected;
+        }
+
+        private void CloseChangePasswordWindow(object sender, EventArgs e)
+        {
+            _changePasswordWindow.Close();
+            if (e != EventArgs.Empty)
+            {
+                UserEventArgs arg = e as UserEventArgs;
+                if (!User.ChangePassword(arg.Password, arg.NewPass,arg.ConfirmPass))
+                {
+                    MessageBox.Show("Erreur dans le changement du mot de passe", "Erreur changement mot de passe", MessageBoxButton.OK);
+                }
+            }
+            ButtonPressedEvent.GetEvent().Handler -= CloseChangePasswordWindow;
+        }
+
+        private void CloseAddUserWindow(object sender, EventArgs e)
+        {
+            _addUserWindow.Close();
+            if (e != EventArgs.Empty)
+            {
+                UserAccount account = (e as UserEventArgs).UserAccount;
+                if (ListUsers.Contains(account))
+                {
+                    MessageBox.Show("Erreur : cet utilisateur existe déjà", "Erreur : utilisateur existant", MessageBoxButton.OK);
+                }
+                else
+                {
+                    ListUsers.Add(account);
+                    User = account;
+                    IsConnected = true;
+                }
+            }
+            ButtonPressedEvent.GetEvent().Handler -= CloseAddUserWindow;
+        }
+
+        private void CloseConnectUserWindow(object sender, EventArgs e)
+        {
+            _connectUserWindow.Close();
+            if (e != EventArgs.Empty)
+            {
+                UserAccount account = (e as UserEventArgs).UserAccount;
+                string pass = (e as UserEventArgs).Password;
+                if (!ListUsers.Contains(account))
+                {
+                    MessageBox.Show("Erreur : cet utilisateur n'existe pas", "Erreur : utilisateur inconnu", MessageBoxButton.OK);
+                }
+                else
+                {
+                    UserAccount selectedAccount = ListUsers.Where(usr => usr.Equals(account)).First();
+                    if (!selectedAccount.IsPasswordCorrect(pass))
+                    {
+                        MessageBox.Show("Erreur : mot de passe incorrect", "Erreur : mot de passe incorrect", MessageBoxButton.OK);
+                    }
+                    else
+                    {
+                        IsConnected = true;
+                        User = selectedAccount;
+                    }
+                }
+            }
+            ButtonPressedEvent.GetEvent().Handler -= CloseConnectUserWindow;
+        }
+
+        #endregion
 
         #endregion
     }

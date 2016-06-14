@@ -32,3 +32,9 @@ C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin
 C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\bin\ProjetFlavienValentin.exe.config
 C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\bin\ProjetFlavienValentin.exe
 C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\bin\ProjetFlavienValentin.pdb
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\AddUserWindow.baml
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\AddUserWindow.g.cs
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ConnectUserWindow.baml
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ConnectUserWindow.g.cs
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ChangePasswordWindow.baml
+C:\Users\Administrateur\Desktop\PPPPPPPPPP\Nouveau dossier\ProjetFlavienValentin\ProjetFlavienValentin\obj\Debug\ChangePasswordWindow.g.cs
