@@ -326,6 +326,7 @@ namespace ProjetFlavienValentin.ViewModel
         {
             OpenFileDialog fenetre = new OpenFileDialog();
             fenetre.Title = "Sélectionnez une image";
+            fenetre.Filter = "Images (*.jpg, *.png, *.gif)|*.xml;*.png;*.gif";
             fenetre.ShowDialog();
             if (fenetre.FileName != string.Empty)
             {
@@ -346,7 +347,6 @@ namespace ProjetFlavienValentin.ViewModel
             fenetre.ShowDialog();
             if (fenetre.FileName != string.Empty)
             {
-                _listAnimals.Clear();
                 ListAnimalXMLManager.ReadListAnimalInXMLFile(_listAnimals, fenetre.FileName);
                 _actualXMLFile = fenetre.FileName;
             }            
@@ -427,7 +427,7 @@ namespace ProjetFlavienValentin.ViewModel
             if (e != EventArgs.Empty)
             {
                 UserEventArgs arg = e as UserEventArgs;
-                if (!User.ChangePassword(arg.Password, arg.NewPass,arg.ConfirmPass))
+                if (!User.ChangePassword(UserAccount.DecryptPassword(arg.Password), UserAccount.DecryptPassword(arg.NewPass),UserAccount.DecryptPassword(arg.ConfirmPass)))
                 {
                     MessageBox.Show("Erreur dans le changement du mot de passe", "Erreur changement mot de passe", MessageBoxButton.OK);
                 }
@@ -442,7 +442,7 @@ namespace ProjetFlavienValentin.ViewModel
             if (e != EventArgs.Empty)
             {
                 UserAccount account = (e as UserEventArgs).UserAccount;
-                if (ListUsers.Contains(account))
+                if (ListUsers.Contains(account)) //Cas : utilisateur déjà existant
                 {
                     MessageBox.Show("Erreur : cet utilisateur existe déjà", "Erreur : utilisateur existant", MessageBoxButton.OK);
                 }
@@ -454,7 +454,6 @@ namespace ProjetFlavienValentin.ViewModel
                     IsConnected = true;
                     if (User.ListAnimalSource != string.Empty)
                     {
-                        _listAnimals.Clear();
                         ListAnimalXMLManager.ReadListAnimalInXMLFile(_listAnimals, User.ListAnimalSource);
                         _actualXMLFile = User.ListAnimalSource;
                     }
@@ -470,14 +469,14 @@ namespace ProjetFlavienValentin.ViewModel
             {
                 UserAccount account = (e as UserEventArgs).UserAccount;
                 string pass = (e as UserEventArgs).Password;
-                if (!ListUsers.Contains(account))
+                if (!ListUsers.Contains(account)) //Cas : compte innexistant
                 {
                     MessageBox.Show("Erreur : cet utilisateur n'existe pas", "Erreur : utilisateur inconnu", MessageBoxButton.OK);
                 }
                 else
                 {
                     UserAccount selectedAccount = ListUsers.Where(usr => usr.Equals(account)).First();
-                    if (!selectedAccount.IsPasswordCorrect(pass))
+                    if (!selectedAccount.IsPasswordCorrect(UserAccount.DecryptPassword(pass))) //Cas : mauvais mot de passe
                     {
                         MessageBox.Show("Erreur : mot de passe incorrect", "Erreur : mot de passe incorrect", MessageBoxButton.OK);
                     }
@@ -487,7 +486,6 @@ namespace ProjetFlavienValentin.ViewModel
                         User = selectedAccount;
                         if (User.ListAnimalSource != string.Empty)
                         {
-                            _listAnimals.Clear();
                             ListAnimalXMLManager.ReadListAnimalInXMLFile(_listAnimals, User.ListAnimalSource);
                             _actualXMLFile = User.ListAnimalSource;
                         }
@@ -506,7 +504,7 @@ namespace ProjetFlavienValentin.ViewModel
             if (fenetre.FileName != string.Empty)
             {
                 User.ListAnimalSource = fenetre.FileName;
-                _listAnimals.Clear();
+                UserManager.SaveListUser(_listUsers);
                 ListAnimalXMLManager.ReadListAnimalInXMLFile(_listAnimals, fenetre.FileName);
                 _actualXMLFile = fenetre.FileName;
             }            

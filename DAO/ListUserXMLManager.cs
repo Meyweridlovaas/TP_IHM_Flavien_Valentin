@@ -1,4 +1,12 @@
-﻿using System;
+﻿// ========================================================================
+//
+// Module        : ListUserXMLManager.cs
+// Author        : Valentin Gonon & Flavien Sarret
+// Creation date : 2016-06-15
+//
+// ========================================================================
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +17,9 @@ namespace DAO
 {
     class ListUserXMLManager
     {
+        /// <summary>
+        /// Ouvre une liste d'utilisateurs depuis un fichier XML
+        /// </summary>
         public static void ReadListUserInXMLFile(IList<UserAccount> list, string path)
         {
             XDocument file = XDocument.Load(path);
@@ -26,6 +37,9 @@ namespace DAO
             }
         }
 
+        /// <summary>
+        /// Sauvegarde une liste d'utilisateurs dans un fichier XML
+        /// </summary>
         public static void WriteListuserInXMLFile(IList<UserAccount> list, string path)
         {
             XDocument file = new XDocument();

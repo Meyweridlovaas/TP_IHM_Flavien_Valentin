@@ -1,4 +1,12 @@
-﻿using System;
+﻿// ========================================================================
+//
+// Module        : ButtonPressedEvent.cs
+// Author        : Valentin Gonon & Flavien Sarret
+// Creation date : 2016-06-15
+//
+// ========================================================================
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

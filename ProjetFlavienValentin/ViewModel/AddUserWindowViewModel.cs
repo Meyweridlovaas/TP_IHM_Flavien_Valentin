@@ -1,4 +1,12 @@
-﻿using DAO;
+﻿// ========================================================================
+//
+// Module        : AddUserWindowViewModel.cs
+// Author        : Valentin Gonon & Flavien Sarret
+// Creation date : 2016-06-15
+//
+// ========================================================================
+
+using DAO;
 using Library;
 using Microsoft.Win32;
 using ProjetFlavienValentin.Event;
@@ -94,6 +102,7 @@ namespace ProjetFlavienValentin
             ConfirmCreateCommand = new DelegateCommand(OnConfirmCreateCommand, CanConfirmCreateCommand);
             CancelCreateCommand = new DelegateCommand(OnCancelCreateCommand, CanCancelCreateCommand);
             AddListCommand = new DelegateCommand(OnAddListCommand, CanAddListCommand);
+
             Name = string.Empty;
             Password = string.Empty;
             ConfirmPassword = string.Empty;

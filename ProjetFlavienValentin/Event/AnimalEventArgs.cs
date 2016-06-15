@@ -1,4 +1,12 @@
-﻿using DAO;
+﻿// ========================================================================
+//
+// Module        : AnimalEventArgs.cs
+// Author        : Valentin Gonon & Flavien Sarret
+// Creation date : 2016-06-15
+//
+// ========================================================================
+
+using DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,4 +1,12 @@
-﻿<Window x:Class="ProjetFlavienValentin.AddUserWindow"
+﻿<!-- ======================================================================
+
+   Module        : AddUserWindow.xaml
+   Author        : Valentin Gonon & Flavien Sarret
+// Creation date : 2016-06-15
+
+======================================================================== -->
+
+<Window x:Class="ProjetFlavienValentin.AddUserWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Créer un compte" Height="300" Width="300" ResizeMode="NoResize">

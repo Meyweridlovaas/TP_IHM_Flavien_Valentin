@@ -1,4 +1,12 @@
-﻿<Window x:Class="ProjetFlavienValentin.ConnectUserWindow"
+﻿<!-- ======================================================================
+
+   Module        : ConnectUserWindow.xaml
+   Author        : Valentin Gonon & Flavien Sarret
+// Creation date : 2016-06-15
+
+======================================================================== -->
+
+<Window x:Class="ProjetFlavienValentin.ConnectUserWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Connexion" Height="150" Width="250" ResizeMode="NoResize">
@@ -6,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>            
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -16,6 +24,6 @@
         <Label Content="Mot de passe : " Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox Grid.Column="1" Margin="4" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Column="1" Grid.Row="1" Margin="4" Text="{Binding Password,UpdateSourceTrigger=PropertyChanged}" />
-        <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Connexion" Margin="5" Width="120" Command="{Binding ConnectCommand}"/>       
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Connexion" Margin="5" Width="120" Command="{Binding ConnectCommand}"/>
     </Grid>
 </Window>

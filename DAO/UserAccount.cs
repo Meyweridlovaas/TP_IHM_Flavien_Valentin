@@ -1,4 +1,12 @@
-﻿using System;
+﻿// ========================================================================
+//
+// Module        : UserAccount.cs
+// Author        : Valentin Gonon & Flavien Sarret
+// Creation date : 2016-06-15
+//
+// ========================================================================
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +21,12 @@ namespace DAO
         {
             get
             {
+                //retourne le mot de passe encrypté
                 return EncryptPassword(_password);
             }
             set
             {
+                //ajoute le mot de passe si il est vide
                 if (_password == string.Empty)
                 {
                     _password = value;
@@ -44,6 +54,9 @@ namespace DAO
             return Name.GetHashCode();
         }
 
+        /// <summary>
+        /// Permet l'ajout d'un premier mot de passe
+        /// </summary>
         public void AddFirstPassword(string pass, string confirmPass)
         {
             if (_password == string.Empty && pass == confirmPass)
@@ -52,6 +65,9 @@ namespace DAO
             }
         }
 
+        /// <summary>
+        /// Change le mot de passe de l'utilisateur
+        /// </summary>
         public bool ChangePassword(string oldPass, string newPass, string confirmPass)
         {
             if (oldPass != _password || newPass != confirmPass || newPass == string.Empty) return false;
@@ -64,12 +80,18 @@ namespace DAO
             return pass == _password;
         }
 
+        /// <summary>
+        /// Encrypte le mot de passe
+        /// </summary>
         public static string EncryptPassword(string pass)
         {
             //placer ici un vrai encryptage
             return pass;
         }
 
+        /// <summary>
+        /// Décrypte le mot de passe encrypté
+        /// </summary>
         public static string DecryptPassword(string pass)
         {
             //placer ici le décryptage correspondant

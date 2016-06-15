@@ -1,4 +1,12 @@
-﻿using DAO;
+﻿// ========================================================================
+//
+// Module        : ConnectUserWindowViewModel.cs
+// Author        : Valentin Gonon & Flavien Sarret
+// Creation date : 2016-06-15
+//
+// ========================================================================
+
+using DAO;
 using Library;
 using ProjetFlavienValentin.Event;
 using System;
@@ -71,7 +79,8 @@ namespace ProjetFlavienValentin.ViewModel
         {
             UserEventArgs arg = new UserEventArgs();
             arg.UserAccount = new UserAccount { Name = Name };
-            arg.Password = Password;
+            //Encrypte le mot de passe
+            arg.Password = UserAccount.EncryptPassword(Password);
             ButtonPressedEvent.GetEvent().OnButtonPressedHandler(arg);
         }
 

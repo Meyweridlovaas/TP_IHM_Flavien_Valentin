@@ -1,4 +1,13 @@
-﻿using Library;
+﻿// ========================================================================
+//
+// Module        : ChangePasswordWindowViewModel.cs
+// Author        : Valentin Gonon & Flavien Sarret
+// Creation date : 2016-06-15
+//
+// ========================================================================
+
+using DAO;
+using Library;
 using ProjetFlavienValentin.Event;
 using System;
 using System.Collections.Generic;
@@ -84,9 +93,10 @@ namespace ProjetFlavienValentin.ViewModel
         private void OnChangePassCommand(object o)
         {
             UserEventArgs arg = new UserEventArgs();
-            arg.Password = OldPassword;
-            arg.NewPass = Password;
-            arg.ConfirmPass = ConfirmPassword;
+            //Encrypte toutes les données avant envoi
+            arg.Password = UserAccount.EncryptPassword(OldPassword);
+            arg.NewPass = UserAccount.EncryptPassword(Password);
+            arg.ConfirmPass = UserAccount.EncryptPassword(ConfirmPassword);
             ButtonPressedEvent.GetEvent().OnButtonPressedHandler(arg);
         }
 

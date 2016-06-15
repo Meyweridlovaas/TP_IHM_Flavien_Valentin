@@ -2,12 +2,17 @@
 <ListUser>
   <User>
     <Name>toto</Name>
-    <ListAnimalSource></ListAnimalSource>
+    <ListAnimalSource>C:\Users\Administrateur\Desktop\bidule.xml</ListAnimalSource>
     <Password>tata</Password>
   </User>
   <User>
     <Name>titi</Name>
     <ListAnimalSource>C:\Users\Administrateur\Desktop\truc.xml</ListAnimalSource>
     <Password>titi</Password>
+  </User>
+  <User>
+    <Name>Blob</Name>
+    <ListAnimalSource></ListAnimalSource>
+    <Password>tardis666</Password>
   </User>
 </ListUser>

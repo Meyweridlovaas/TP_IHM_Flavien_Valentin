@@ -139,6 +139,7 @@ namespace ProjetFlavienValentin.ViewModel
         {
             OpenFileDialog fenetre = new OpenFileDialog();
             fenetre.Title = "Sélectionnez une image";
+            fenetre.Filter = "Images (*.jpg, *.png, *.gif)|*.xml;*.png;*.gif";
             fenetre.ShowDialog();
             ImageSource = fenetre.FileName;
         }
