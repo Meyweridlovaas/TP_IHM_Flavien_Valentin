@@ -37,6 +37,7 @@ namespace ProjetFlavienValentin.ViewModel
             {
                 _user = value;
                 NotifyPropertyChanged("User");
+                AddListToUserCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -192,6 +193,7 @@ namespace ProjetFlavienValentin.ViewModel
         private AddUserWindow _addUserWindow;
         private ConnectUserWindow _connectUserWindow;
         private ChangePasswordWindow _changePasswordWindow;
+        private string _actualXMLFile;
 
         #endregion
 
@@ -212,12 +214,14 @@ namespace ProjetFlavienValentin.ViewModel
         public DelegateCommand SaveXMLCommand { get; set; }
         public DelegateCommand SaveAsXMLCommand { get; set; }
         public DelegateCommand OpenXMLCommand { get; set; }
+        public DelegateCommand AddListToUserCommand { get; set; }
 
         #endregion
 
         public ListAnimalViewModel()
         {
             AnimalManager.InitializeListAnimal(_listAnimals);
+            UserManager.InitializeListUser(_listUsers);
 
             AddCommand = new DelegateCommand(OnAddCommand, CanAddCommand);
             EditCommand = new DelegateCommand(OnEditCommand, CanEditOrDeleteCommand);
@@ -232,6 +236,7 @@ namespace ProjetFlavienValentin.ViewModel
             SaveXMLCommand = new DelegateCommand(OnSaveXMLCommand, CanXMLCommand);
             SaveAsXMLCommand = new DelegateCommand(OnSaveAsXMLCommand, CanXMLCommand);
             OpenXMLCommand = new DelegateCommand(OnOpenXMLCommand, CanXMLCommand);
+            AddListToUserCommand = new DelegateCommand(OnAddListCommand, CanAddListCommand);
 
             IsReadOnly = true;
             IsConnected = false;
@@ -335,22 +340,43 @@ namespace ProjetFlavienValentin.ViewModel
 
         private void OnOpenXMLCommand(object obj)
         {
-            throw new NotImplementedException();
+            OpenFileDialog fenetre = new OpenFileDialog();
+            fenetre.Title = "Sélectionnez un fichier XML";
+            fenetre.Filter = "Fichier XML (*.xml)|*.xml";
+            fenetre.ShowDialog();
+            if (fenetre.FileName != string.Empty)
+            {
+                _listAnimals.Clear();
+                ListAnimalXMLManager.ReadListAnimalInXMLFile(_listAnimals, fenetre.FileName);
+                _actualXMLFile = fenetre.FileName;
+            }            
         }
 
         private void OnSaveAsXMLCommand(object obj)
         {
-            throw new NotImplementedException();
+            SaveFileDialog fenetre = new SaveFileDialog();
+            fenetre.Title = "Enregistrez un fichier XML";
+            fenetre.Filter = "Fichier XML (*.xml)|*.xml";
+            fenetre.ShowDialog();
+            if (fenetre.FileName != string.Empty)
+            {
+                _actualXMLFile = fenetre.FileName;
+                OnSaveXMLCommand(null);
+            }
+        }
+
+        private void OnSaveXMLCommand(object obj)
+        {
+            if (_actualXMLFile == null)
+            {
+                OnSaveAsXMLCommand(null);
+            }
+            ListAnimalXMLManager.WriteListAnimalInXMLFile(_listAnimals, _actualXMLFile);
         }
 
         private bool CanXMLCommand(object obj)
         {
             return true;
-        }
-
-        private void OnSaveXMLCommand(object obj)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion
@@ -380,6 +406,7 @@ namespace ProjetFlavienValentin.ViewModel
         {
             IsConnected = false;
             User = null;
+            _actualXMLFile = null;
         }
 
         private void OnChangePasswordCommand(object obj)
@@ -404,6 +431,7 @@ namespace ProjetFlavienValentin.ViewModel
                 {
                     MessageBox.Show("Erreur dans le changement du mot de passe", "Erreur changement mot de passe", MessageBoxButton.OK);
                 }
+                else UserManager.SaveListUser(_listUsers);
             }
             ButtonPressedEvent.GetEvent().Handler -= CloseChangePasswordWindow;
         }
@@ -421,8 +449,15 @@ namespace ProjetFlavienValentin.ViewModel
                 else
                 {
                     ListUsers.Add(account);
+                    UserManager.SaveListUser(_listUsers);
                     User = account;
                     IsConnected = true;
+                    if (User.ListAnimalSource != string.Empty)
+                    {
+                        _listAnimals.Clear();
+                        ListAnimalXMLManager.ReadListAnimalInXMLFile(_listAnimals, User.ListAnimalSource);
+                        _actualXMLFile = User.ListAnimalSource;
+                    }
                 }
             }
             ButtonPressedEvent.GetEvent().Handler -= CloseAddUserWindow;
@@ -450,10 +485,36 @@ namespace ProjetFlavienValentin.ViewModel
                     {
                         IsConnected = true;
                         User = selectedAccount;
+                        if (User.ListAnimalSource != string.Empty)
+                        {
+                            _listAnimals.Clear();
+                            ListAnimalXMLManager.ReadListAnimalInXMLFile(_listAnimals, User.ListAnimalSource);
+                            _actualXMLFile = User.ListAnimalSource;
+                        }
                     }
                 }
             }
             ButtonPressedEvent.GetEvent().Handler -= CloseConnectUserWindow;
+        }        
+
+        private void OnAddListCommand(object obj)
+        {
+            OpenFileDialog fenetre = new OpenFileDialog();
+            fenetre.Title = "Sélectionnez une liste XML";
+            fenetre.Filter = "Fichier XML (*.xml)|*.xml";
+            fenetre.ShowDialog();
+            if (fenetre.FileName != string.Empty)
+            {
+                User.ListAnimalSource = fenetre.FileName;
+                _listAnimals.Clear();
+                ListAnimalXMLManager.ReadListAnimalInXMLFile(_listAnimals, fenetre.FileName);
+                _actualXMLFile = fenetre.FileName;
+            }            
+        }
+
+        private bool CanAddListCommand(object obj)
+        {
+            return User != null;
         }
 
         #endregion

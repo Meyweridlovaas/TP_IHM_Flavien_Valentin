@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ListUser>
+  <User>
+    <Name>toto</Name>
+    <ListAnimalSource></ListAnimalSource>
+    <Password>tata</Password>
+  </User>
+  <User>
+    <Name>titi</Name>
+    <ListAnimalSource>C:\Users\Administrateur\Desktop\truc.xml</ListAnimalSource>
+    <Password>titi</Password>
+  </User>
+</ListUser>

@@ -9,8 +9,23 @@ namespace DAO
     public class UserAccount
     {
         public string Name { get; set; }
-        private string _password;
+        public string Password
+        {
+            get
+            {
+                return EncryptPassword(_password);
+            }
+            set
+            {
+                if (_password == string.Empty)
+                {
+                    _password = value;
+                }
+            }
+        }        
         public string ListAnimalSource { get; set; }
+
+        private string _password;
 
         public UserAccount()
         {
@@ -47,6 +62,18 @@ namespace DAO
         public bool IsPasswordCorrect(string pass)
         {
             return pass == _password;
+        }
+
+        public static string EncryptPassword(string pass)
+        {
+            //placer ici un vrai encryptage
+            return pass;
+        }
+
+        public static string DecryptPassword(string pass)
+        {
+            //placer ici le décryptage correspondant
+            return pass;
         }
     }
 }

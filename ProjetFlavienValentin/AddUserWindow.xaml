@@ -20,7 +20,7 @@
         <TextBox Grid.Column="1" Margin="5" Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Column="1" Grid.Row="1"  Margin="5" Text="{Binding Password,UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Column="1" Grid.Row="2"  Margin="5" Text="{Binding ConfirmPassword,UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Importer liste XML" Margin="5" Width="140"/>
+        <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Importer liste XML" Margin="5" Width="140" Command="{Binding AddListCommand}"/>
         <Button Grid.Column="1" Grid.Row="4" Margin="5" Content="Annuler" Command="{Binding CancelCreateCommand}"/>
         <Button Grid.Row="4" Margin="5" Content="Créer compte" Command="{Binding ConfirmCreateCommand}"/>
     </Grid>

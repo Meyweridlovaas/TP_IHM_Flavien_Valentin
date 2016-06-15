@@ -126,11 +126,11 @@ namespace ProjetFlavienValentin
             return true;
         }               
 
-        private void OnAddListCommand(object obj) // TO DO
+        private void OnAddListCommand(object obj)
         {
             OpenFileDialog fenetre = new OpenFileDialog();
             fenetre.Title = "Sélectionnez une liste XML";
-            //A AMELIORER
+            fenetre.Filter = "Fichier XML (*.xml)|*.xml";
             fenetre.ShowDialog();
             ListSource = fenetre.FileName;
         }

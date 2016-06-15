@@ -14,9 +14,9 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Fichier">
-                <MenuItem Header="Ouvrir fichier XML"/>
-                <MenuItem Header="Enregistrer format XML"/>
-                <MenuItem Header="Enregistrer format XML sous..."/>
+                <MenuItem Header="Ouvrir fichier XML" Command="{Binding OpenXMLCommand}"/>
+                <MenuItem Header="Enregistrer format XML" Command="{Binding SaveXMLCommand}"/>
+                <MenuItem Header="Enregistrer format XML sous..." Command="{Binding SaveAsXMLCommand}"/>
             </MenuItem>
             <MenuItem Header="Editer">
                 <MenuItem Command="{Binding ChangeImageCommand}" Header="Changer l'image de l'animal"/>
@@ -28,6 +28,7 @@
                 <MenuItem Header="Se connecter" Command="{Binding ConnectCommand}"/>
                 <MenuItem Header="Créer un compte" Command="{Binding CreateAccountCommand}"/>
                 <MenuItem Header="Se déconnecter" Command="{Binding DisconnectCommand}"/>
+                <MenuItem Header="Choisir un fichier XML de base" Command="{Binding AddListToUserCommand}"/>
                 <MenuItem Header="Changer de mot de passe" Command="{Binding ChangePasswordCommand}"/>
             </MenuItem>
         </Menu>
